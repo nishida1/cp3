@@ -17,7 +17,8 @@ class ArticlesController extends AppController
             ->order(['Articles.id'=>'desc']);
             $this->set('searchwd', $searchwd);
         }else{
-            $data = $this->Articles->find('all');
+            $data = $this->Articles->find('all')
+            ->order(['Articles.id'=>'desc']);
             $this->set('searchwd', '');
         }
 
@@ -47,8 +48,13 @@ class ArticlesController extends AppController
         if ($this->request->is('post')) {
             $data = $this->request->data['Articles'];
             $entity = $this->Articles->newEntity($data);
+
             if($this->Articles->save($entity)){
                 return $this->redirect(['action'=>'index']);
+            }else{
+                //validationエラーが発生した場合も入力欄に入力内容を反映させる
+                $entity->errtitle = $data['title'];
+                $entity->errcontent = $data['content'];
             }
         }
 

@@ -22,7 +22,7 @@
 
 <body>
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <a class="navbar-brand" href="#">Test</a>
+    <a class="navbar-brand" href="./">Test</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
       aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -62,13 +62,30 @@
                     
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Title</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput1" name="Articles[title]" value="<?=$entity->title ?>">
-                        <?=$this->Form->error('Articles.title') ?>
+
+
+                        <?php if($this->Form->error('Articles.title')): ?>
+                            <input type="text" class="form-control is-invalid" id="exampleFormControlInput1" name="Articles[title]" value="<?=$entity->errtitle ?>">
+                            <div class="invalid-feedback">
+                                <?=$this->Form->error('Articles.title') ?>
+                            </div>
+                        <?php else: ?>
+                            <input type="text" class="form-control" id="exampleFormControlInput1" name="Articles[title]" value="<?=$entity->title ?>">
+                        <?php endif; ?>
+
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">Content</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="Articles[content]"><?=$entity->content ?></textarea>
-                        <?=$this->Form->error('Articles.content') ?>
+                        
+                        <?php if($this->Form->error('Articles.content')): ?>
+                            <textarea class="form-control is-invalid" id="exampleFormControlTextarea1" rows="3" name="Articles[content]"><?=$entity->errcontent ?></textarea>
+                            <div class="invalid-feedback">
+                                <?=$this->Form->error('Articles.content') ?>
+                            </div>
+                        <?php else: ?>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="Articles[content]"><?=$entity->content ?></textarea>
+                        <?php endif; ?>
+
                     </div>
 
                     <button type="submit" class="btn btn-secondary">Add</button>

@@ -9,7 +9,7 @@ class ArticlesTable extends Table{
 
         $validator
         ->scalar('title')
-        ->maxLength('title', 10, 'maxLength error')
+        ->maxLength('title', 5, 'maxLength error')
         ->notEmpty('title', 'required error');
 
         $validator
