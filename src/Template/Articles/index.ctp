@@ -78,7 +78,9 @@
             <div class="col-md-4">
             <h2><?=h($obj->title) ?></h2>
             <p><?=h($obj->content) ?></p>
-            <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p><br>
+            <p><a class="btn btn-secondary" 
+            href="<?=$this->Url->build(['controller'=>'Articles', 'action'=>'edit']); ?>?id=<?=h($obj->id) ?>"
+            role="button">Edit &raquo;</a></p><br>
             </div>
 
         <?php endforeach; ?>
