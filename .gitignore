@@ -2,6 +2,7 @@
 ##########################
 /config/.env
 /tmp/*
+/logs/error.log
 
 # OS generated files #
 ######################
