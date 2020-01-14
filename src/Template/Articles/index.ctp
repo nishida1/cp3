@@ -80,7 +80,11 @@
             <p><?=h($obj->content) ?></p>
             <p><a class="btn btn-secondary" 
             href="<?=$this->Url->build(['controller'=>'Articles', 'action'=>'edit']); ?>?id=<?=h($obj->id) ?>"
-            role="button">Edit &raquo;</a></p><br>
+            role="button">Edit &raquo;</a>
+            <a class="btn btn-outline-danger" 
+            href="<?=$this->Url->build(['controller'=>'Articles', 'action'=>'delete']); ?>?id=<?=h($obj->id) ?>"
+            role="button">Delete &raquo;</a>
+            </p><br>
             </div>
 
         <?php endforeach; ?>

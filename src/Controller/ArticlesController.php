@@ -18,6 +18,14 @@ class ArticlesController extends AppController
         $entity = $this->Articles->get($id);
         $this->set('entity', $entity);
     }
+
+    public function delete(){
+        $id = $this->request->query['id'];
+        $entity = $this->Articles->get($id);
+        $this->set('entity', $entity);
+        $this->Articles->delete($entity);
+        return $this->redirect(['action'=>'index']);
+    }
     
     public function add()
     {
