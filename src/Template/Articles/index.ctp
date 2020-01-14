@@ -45,10 +45,15 @@
           </div>
         </li>
       </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+
+      <?=$this->Form->create(null, ['url' => ['controller' => 'Articles', 'action' => 'index'], 'type' => 'post', 
+      'class' => 'form-inline my-2 my-lg-0'])?>
+
+        <input class="form-control mr-sm-2" name="searchwd" value="<?=$searchwd ?>" type="text" placeholder="Search" aria-label="Search">  
         <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
-      </form>
+
+      <?=$this->Form->end()?>
+
     </div>
   </nav>
 

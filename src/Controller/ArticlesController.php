@@ -8,7 +8,19 @@ class ArticlesController extends AppController
     public function index()
     {
         $this->viewBuilder()->autoLayout(false);
-        $data = $this->Articles->find('all');
+        
+        if($this->request->is('post')){
+            $searchwd = $this->request->data['searchwd'];
+            $data = $this->Articles->find()
+            ->where(['title like'=>'%'.$searchwd.'%'])
+            ->orWhere(['content like'=>'%'.$searchwd.'%'])
+            ->order(['Articles.id'=>'desc']);
+            $this->set('searchwd', $searchwd);
+        }else{
+            $data = $this->Articles->find('all');
+            $this->set('searchwd', '');
+        }
+
         $this->set('data', $data);
     }
 
