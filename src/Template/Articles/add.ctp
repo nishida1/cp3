@@ -58,15 +58,17 @@
         <div class="jumbotron">
             <div class="container">
 
-                <?=$this->Form->create($entity, ['url' => ['controller' => 'Articles', 'action' => 'create'], 'type' => 'post'])?>
+                <?=$this->Form->create($entity, ['url' => ['controller' => 'Articles', 'action' => 'add'], 'type' => 'post'])?>
                     
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Title</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput1" name="Articles[title]">
+                        <input type="text" class="form-control" id="exampleFormControlInput1" name="Articles[title]" value="<?=$entity->title ?>">
+                        <?=$this->Form->error('Articles.title') ?>
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">Content</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="Articles[content]"></textarea>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="Articles[content]"><?=$entity->content ?></textarea>
+                        <?=$this->Form->error('Articles.content') ?>
                     </div>
 
                     <button type="submit" class="btn btn-secondary">Add</button>

@@ -43,17 +43,16 @@ class ArticlesController extends AppController
     {
         $this->viewBuilder()->autoLayout(false);
         $entity = $this->Articles->newEntity();
-        $this->set('entity', $entity);
-    }
 
-    public function create()
-    {
         if ($this->request->is('post')) {
             $data = $this->request->data['Articles'];
             $entity = $this->Articles->newEntity($data);
-            $this->Articles->save($entity);
+            if($this->Articles->save($entity)){
+                return $this->redirect(['action'=>'index']);
+            }
         }
-        return $this->redirect(['action'=>'index']);
+
+        $this->set('entity', $entity);
     }
 
     public function update(){
