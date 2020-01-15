@@ -100,6 +100,12 @@
 
     <nav aria-label="Page navigation">
       <ul class="pagination justify-content-center">
+
+        <?=$this->Paginator->first('最初') ?>
+        <?=$this->Paginator->prev('前') ?>
+        <?=$this->Paginator->next('次') ?>
+        <?=$this->Paginator->last('最後') ?>
+
         <li class="page-item"><a class="page-link" href="#">前へ</a></li>
         <li class="page-item"><a class="page-link" href="#">1</a></li>
         <li class="page-item"><a class="page-link" href="#">2</a></li>
