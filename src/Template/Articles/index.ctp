@@ -100,20 +100,9 @@
 
     <nav aria-label="Page navigation">
       <ul class="pagination justify-content-center">
-        <li class="page-item"><a class="page-link" href="#">前へ</a></li>
-        <li class="page-item"><a class="page-link" href="#">1</a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item"><a class="page-link" href="#">次へ</a></li>
-      </ul>
-    </nav>
-
-    <nav aria-label="Page navigation">
-      <ul class="pagination justify-content-center">
-
-        <?=$this->Paginator->prev('前へ') ?>
-        <?=$this->Paginator->next('次へ') ?>
-
+        <?= $this->Paginator->prev('前へ'); ?>
+        <?= $this->Paginator->numbers(); ?>
+        <?= $this->Paginator->next('次へ'); ?>
       </ul>
     </nav>
 

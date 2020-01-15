@@ -10,6 +10,10 @@ class ArticlesController extends AppController
         'limit' => 2,
     ];
 
+    public $helpers = [
+        'Paginator' => ['templates' => 'paginator-templates']
+    ];
+
     public function initialize()
     {
         parent::initialize();
