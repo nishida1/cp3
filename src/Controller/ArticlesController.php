@@ -45,6 +45,14 @@ class ArticlesController extends AppController
         $this->set('data', $data);
     }
 
+    public function detail()
+    {
+        $this->viewBuilder()->autoLayout(false);
+        $id = $this->request->query['id'];
+        $entity = $this->Articles->get($id);
+        $this->set('entity', $entity);
+    } 
+
     public function edit()
     {
         $this->viewBuilder()->autoLayout(false);

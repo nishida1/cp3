@@ -88,6 +88,9 @@
             <a class="btn btn-outline-danger" 
             href="<?=$this->Url->build(['controller'=>'Articles', 'action'=>'delete']); ?>?id=<?=h($obj->id) ?>"
             role="button">Delete &raquo;</a>
+            <a class="btn btn-outline-success" 
+            href="<?=$this->Url->build(['controller'=>'Articles', 'action'=>'detail']); ?>?id=<?=h($obj->id) ?>"
+            role="button">Detail &raquo;</a>
             </p><br>
             </div>
 
