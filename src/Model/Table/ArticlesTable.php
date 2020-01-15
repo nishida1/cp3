@@ -13,8 +13,13 @@ class ArticlesTable extends Table{
         ->notEmpty('title', 'required error');
 
         $validator
+        ->scalar('summary')
+        ->maxLength('summary', 50, 'maxLength error')
+        ->notEmpty('summary', 'required error');
+
+        $validator
         ->scalar('content')
-        ->maxLength('content', 50, 'maxLength error')
+        ->maxLength('content', 50000, 'maxLength error')
         ->notEmpty('content', 'required error');
 
         return $validator;

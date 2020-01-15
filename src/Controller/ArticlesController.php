@@ -85,6 +85,7 @@ class ArticlesController extends AppController
             } else {
                 //validationエラーが発生した場合も入力欄に入力内容を反映させる
                 $entity->errtitle = $data['title'];
+                $entity->errsummary = $data['summary'];
                 $entity->errcontent = $data['content'];
             }
         }

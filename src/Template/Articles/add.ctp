@@ -70,6 +70,21 @@
                         <?php endif; ?>
 
                     </div>
+
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea2">Summary</label>
+                        
+                        <?php if($this->Form->error('Articles.summary')): ?>
+                            <textarea class="form-control is-invalid" id="exampleFormControlTextarea2" rows="3" name="Articles[summary]"><?=$entity->errsummary ?></textarea>
+                            <div class="invalid-feedback">
+                                <?=$this->Form->error('Articles.summary') ?>
+                            </div>
+                        <?php else: ?>
+                            <textarea class="form-control" id="exampleFormControlTextarea2" rows="3" name="Articles[summary]"><?=$entity->summary ?></textarea>
+                        <?php endif; ?>
+
+                    </div>
+
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">Content</label>
                         

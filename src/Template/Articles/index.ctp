@@ -81,16 +81,17 @@
             <div class="col-md-4">
             <small><?php echo date('Y-m-d',  strtotime($obj->date)); ?></small>
             <h2><?=h($obj->title) ?></h2>
-            <p><?=h($obj->content) ?></p>
+            <p><?=h($obj->summary) ?></p>
             <p><a class="btn btn-secondary" 
             href="<?=$this->Url->build(['controller'=>'Articles', 'action'=>'edit']); ?>?id=<?=h($obj->id) ?>"
             role="button">Edit &raquo;</a>
             <a class="btn btn-outline-danger" 
-            href="<?=$this->Url->build(['controller'=>'Articles', 'action'=>'delete']); ?>?id=<?=h($obj->id) ?>"
+            href="javascript:delItem('<?=h($obj->id) ?>');"
             role="button">Delete &raquo;</a>
             <a class="btn btn-outline-success" 
             href="<?=$this->Url->build(['controller'=>'Articles', 'action'=>'detail']); ?>?id=<?=h($obj->id) ?>"
             role="button">Detail &raquo;</a>
+            
             </p><br>
             </div>
 
@@ -127,5 +128,15 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
     crossorigin="anonymous"></script>
+  
+  <script>
+
+  function delItem(id){
+    alert(id);
+    location.href="<?=$this->Url->build(['controller'=>'Articles', 'action'=>'delete']); ?>?id="+id;
+  }
+
+  </script>
+
 </body>
 </html>
