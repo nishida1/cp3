@@ -26,6 +26,9 @@ class ArticlesController extends AppController
         
         if ($this->request->is('post')) {
             $searchwd = $this->request->data['searchwd'];
+
+            //TODO
+
             $data = $this->paginate($this->Articles->find()
             ->where(['title like'=>'%'.$searchwd.'%'])
             ->orWhere(['content like'=>'%'.$searchwd.'%'])
