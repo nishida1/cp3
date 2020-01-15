@@ -26,15 +26,17 @@ class ArticlesController extends AppController
         
         if ($this->request->is('post')) {
             $searchwd = $this->request->data['searchwd'];
+            $this->request->session()->write('searchwd', $searchwd);
+        }
 
-            //TODO
-
+        $searchwd = $this->request->session()->read('searchwd');
+        if(isset($searchwd)){
             $data = $this->paginate($this->Articles->find()
             ->where(['title like'=>'%'.$searchwd.'%'])
             ->orWhere(['content like'=>'%'.$searchwd.'%'])
             ->order(['Articles.id'=>'desc']));
             $this->set('searchwd', $searchwd);
-        } else {
+        }else{
             //$data = $this->Articles->find('all')->order(['Articles.id'=>'desc']);
             $data = $this->paginate($this->Articles->find('all')->order(['Articles.id'=>'desc']));
             $this->set('searchwd', '');
