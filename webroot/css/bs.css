@@ -6,3 +6,10 @@ body {
   .page-link{
     color: #343a40;
   }
+
+  .page-item.active .page-link {
+    z-index: 3;
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
+  }
