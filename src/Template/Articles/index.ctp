@@ -45,15 +45,6 @@
           </div>
         </li>
       </ul>
-
-      <?=$this->Form->create(null, ['url' => ['controller' => 'Articles', 'action' => 'index'], 'type' => 'post', 
-      'class' => 'form-inline my-2 my-lg-0'])?>
-
-        <input class="form-control mr-sm-2" name="searchwd" value="<?=$searchwd ?>" type="text" placeholder="Search" aria-label="Search">  
-        <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
-
-      <?=$this->Form->end()?>
-
     </div>
   </nav>
 
@@ -71,6 +62,14 @@
         href="<?=$this->Url->build(['controller'=>'Articles', 'action'=>'add']); ?>" 
         role="button">Add &raquo;</a></p>
 
+        <br>
+
+        <?=$this->Form->create(null, ['url' => ['controller' => 'Articles', 'action' => 'index'], 'type' => 'post', 
+        'class' => 'form-inline my-2 my-lg-0'])?>
+          <input class="form-control mr-sm-2" name="searchwd" value="<?=$searchwd ?>" type="text" placeholder="Search" aria-label="Search">  
+          <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
+        <?=$this->Form->end()?>
+
       </div>
     </div>
 
@@ -81,6 +80,7 @@
         <?php foreach($data->toArray() as $obj): ?>
 
             <div class="col-md-4">
+            <small><?php echo date('Y-m-d',  strtotime($obj->date)); ?></small>
             <h2><?=h($obj->title) ?></h2>
             <p><?=h($obj->content) ?></p>
             <p><a class="btn btn-secondary" 

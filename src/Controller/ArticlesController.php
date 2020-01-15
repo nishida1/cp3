@@ -70,8 +70,9 @@ class ArticlesController extends AppController
         if ($this->request->is('post')) {
             $data = $this->request->data['Articles'];
             $entity = $this->Articles->newEntity($data);
-
+            $entity->date = date("Y-m-d");
             if ($this->Articles->save($entity)) {
+                $this->request->session()->write('searchwd', null);
                 return $this->redirect(['action'=>'index']);
             } else {
                 //validationエラーが発生した場合も入力欄に入力内容を反映させる
