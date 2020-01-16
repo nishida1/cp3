@@ -132,8 +132,9 @@
   <script>
 
   function delItem(id){
-    alert(id);
-    location.href="<?=$this->Url->build(['controller'=>'Articles', 'action'=>'delete']); ?>?id="+id;
+    if(window.confirm('delete?')){
+      location.href="<?=$this->Url->build(['controller'=>'Articles', 'action'=>'delete']); ?>?id="+id;
+    }
   }
 
   </script>
