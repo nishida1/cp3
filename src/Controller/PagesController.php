@@ -40,6 +40,10 @@ class PagesController extends AppController
      */
     public function display(...$path)
     {
+
+        //redirect test
+        return $this->redirect(['controller'=>'articles','action'=>'index']);
+
         $count = count($path);
         if (!$count) {
             return $this->redirect('/');
