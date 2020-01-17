@@ -58,6 +58,34 @@
         </p>
 
  
+                 <?=$this->Form->create(null, ['url' => ['controller' => 'contact', 'action' => 'index'], 'type' => 'post'])?>
+                    
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Title</label>
+
+                            <input type="text" class="form-control" id="exampleFormControlInput1" name="title" value="">
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea2">email</label>
+                        
+
+                        <input type="text" class="form-control" id="exampleFormControlInput1" name="email" value="">
+
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Content</label>
+                        
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="body"></textarea>
+
+                    </div>
+
+                    <button type="submit" class="btn btn-secondary">Add</button>
+
+                <?=$this->Form->end()?>
 
       </div>
     </div>
