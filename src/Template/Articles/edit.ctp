@@ -63,12 +63,12 @@
 
                     <div class="form-group">
                         <label for="exampleFormControlTextarea2">Summary</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea2" rows="3" name="Articles[summary]"><?=$entity->summary ?></textarea>
+                        <textarea class="form-control" id="exampleFormControlTextarea2" rows="2" name="Articles[summary]"><?=$entity->summary ?></textarea>
                     </div>
 
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">Content</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="Articles[content]"><?=$entity->content ?></textarea>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="6" name="Articles[content]"><?=$entity->content ?></textarea>
                     </div>
 
                     <?=$this->Form->hidden('Articles.id') ?>
