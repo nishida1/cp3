@@ -29,11 +29,11 @@
 
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="">Home<span class="sr-only">(current)</span></a>
-        </li>
         <li class="nav-item">
-          <a class="nav-link" href="./contact">Contact</a>
+          <a class="nav-link" href="./articles">Home<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="">Contact</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
@@ -53,61 +53,17 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-        <h1 class="display-5">Test</h1>
+        <h1 class="display-5">Contact</h1>
         <p>This is a template
         </p>
 
-        <p><a class="btn btn-secondary" 
-        href="<?=$this->Url->build(['controller'=>'Articles', 'action'=>'add']); ?>" 
-        role="button">Add &raquo;</a></p>
-
-        <br>
-
-        <?=$this->Form->create(null, ['url' => ['controller' => 'Articles', 'action' => 'index'], 'type' => 'post', 
-        'class' => 'form-inline my-2 my-lg-0'])?>
-          <input class="form-control mr-sm-2" name="searchwd" value="<?=$searchwd ?>" type="text" placeholder="Search" aria-label="Search">  
-          <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
-        <?=$this->Form->end()?>
+ 
 
       </div>
     </div>
 
-    <div class="container">
-      <!-- Example row of columns -->
-      <div class="row">
 
-        <?php foreach($data->toArray() as $obj): ?>
 
-            <div class="col-md-4">
-            <small><?php echo date('Y-m-d',  strtotime($obj->date)); ?></small>
-            <h2><?=h($obj->title) ?></h2>
-            <p><?=h($obj->summary) ?></p>
-            <p><a class="btn btn-secondary" 
-            href="<?=$this->Url->build(['controller'=>'Articles', 'action'=>'edit']); ?>?id=<?=h($obj->id) ?>"
-            role="button">Edit &raquo;</a>
-            <a class="btn btn-outline-danger" 
-            href="javascript:delItem('<?=h($obj->id) ?>');"
-            role="button">Delete &raquo;</a>
-            <a class="btn btn-outline-success" 
-            href="<?=$this->Url->build(['controller'=>'Articles', 'action'=>'detail']); ?>?id=<?=h($obj->id) ?>"
-            role="button">Detail &raquo;</a>
-            
-            </p><br>
-            </div>
-
-        <?php endforeach; ?>
-
-      </div>
-
-    </div> <!-- /container -->
-
-    <nav aria-label="Page navigation">
-      <ul class="pagination justify-content-center">
-        <?= $this->Paginator->prev('前へ'); ?>
-        <?= $this->Paginator->numbers(array('modulus' => '3')); ?>
-        <?= $this->Paginator->next('次へ'); ?>
-      </ul>
-    </nav>
 
   </main>
 
